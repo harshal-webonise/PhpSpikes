@@ -53,22 +53,9 @@ echo "5. Combine string 1 & 2."."<br />" ;
 echo "6.Echo string 1 & 2 using heredoc"."<br />";
 echo '$stringOne'.'$stringTwo'."<br />";
 
-//21. Print date in array format.
-echo"<br />";
-echo "21. Print date in array format."."<br>";
-$today = getdate();
-print_r($today);
 
-//20. Print date after 20 days from current date
-echo"<br />";
-echo "20. Print date after 20 days from current date";
-$afterTwentyDays = mktime(0,0,0,date("m")+1,date("d")+8,date("Y"));
-echo "After 20  days date is  ".date("Y/m/d", $afterTwentyDays);
 
-//18. Redirect page 1 to page 2.
-echo "<br />";
-echo "18. Redirect page 1 to page 2."."<br />"; 
-echo "header('Location: /info.php')";
+
 
 
 echo"<br />";
@@ -90,13 +77,17 @@ echo"<br />";
 
 
 
-cut($temp);
+cut($stringOne);
 divideStringByDot($temp); 
 
 function cut($temp1)
 {
-	echo"10. Cut the string 1 into 4 parts & print it.";
-	
+	echo"<br />";
+	echo"10. Cut the string 1 into 4 parts & print it."."<br />";
+	$string_replace = str_replace(" ","",$temp1);
+	$count = strlen($string_replace)/4;
+	$out = str_split($temp1,$count+3);
+	print_r($out);
 	}
 function divideStringByDot($temp)
 {
@@ -148,7 +139,7 @@ echo"16. Print all Global varibles provided by PHP"."<br />";
 echo phpinfo(INFO_VARIABLES);
 
 
-CompareDates();
+
 
 
 
@@ -165,11 +156,11 @@ echo "length of string 1 is $length1 and length of string 2 is $length2"."<br />
 function fileWrite($catch) 
 {
 	echo"<br />";
-echo"redirect to output.txt"."<br />";
-$file=fopen("output.txt","w");
+	echo"redirect to output.txt"."<br />";
+	$file=fopen("output.txt","w");
 	fwrite($file, $catch);
-	$fclose($file);
-	//return;	
+	//$fclose($file);
+	echo"$$$$$$$$$$$$$$$$";	
 }
 
 
@@ -183,7 +174,7 @@ echo "17. Usage and examples of Header (PHP)"."<br />";
 1)PHP is not limited to outputting html. PHP can output images, pdf, javascript files, etc. 
 2)Browsers determine what type of content is by analyzing the headers sent
 */
-/*
+
 // Date in the past
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 header("Cache-Control: no-cache");
@@ -198,9 +189,13 @@ readfile("original.pdf");
 header("Content-type:image/jpg");
 header("Content-Disposition:attachment;filename='downloaded.jpg'");// The PDF source is in original.jpg
 readfile("original.jpg");
-*/
 
+//18. Redirect page 1 to page 2.
+echo "<br />";
+echo "18. Redirect page 1 to page 2."."<br />"; 
+echo "header('Location: /info.php')";
 
+CompareDates();
 
 //19. Compare two dates. (12-4-2010 & 12-5-2011). Calculate the days between these two dates. 
 function CompareDates() 
@@ -213,6 +208,16 @@ $interval = $date1->diff($date2);
 echo "difference " . $interval->y . " years, " . $interval->m." months, ".$interval->d." days "; 
 }
 
+//20. Print date after 20 days from current date
+echo"<br />";
+echo "20. Print date after 20 days from current date";
+$afterTwentyDays = mktime(0,0,0,date("m")+1,date("d")+8,date("Y"));
+echo "After 20  days date is  ".date("Y/m/d", $afterTwentyDays);
 
 
+//21. Print date in array format.
+echo"<br />";
+echo "21. Print date in array format."."<br>";
+$today = getdate();
+print_r($today);
 ?>
