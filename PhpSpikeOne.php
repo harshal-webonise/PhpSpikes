@@ -13,6 +13,8 @@ $stringTwo = "PHP does not require (or support) explicit type definition in vari
 
 //3. Create array of words in string 1 & print them using a recursive function.
 
+print_r (explode(" ",$stringOne))."<br />";
+
 //4. Capitalise string 1
 $strUpper = strtoupper($stringOne);
 	echo "<br />"."$strUpper"."<br />"; 
@@ -45,15 +47,14 @@ $afterSevenDays = mktime(0,0,0,date("m"),date("d")+7,date("Y"));
 echo "After 7 days date is  ".date("Y/m/d", $afterSevenDays)."<br />";
 
 //10. Cut the string 1 into 4 parts & print it.
-//for($count1=0;$count1<strlen($stringOne);$count1=$count1+53) 
-//{
-	//$i =0;
-$cut=substr($stringOne, count1, $length = count1);
-echo " " ."cut=$cut"."<br />";
-//
-//$i++;
-//}
-
+/*$i=0;
+while ($i<4)
+{
+$SplittedData=substr($stringOne, 0, $length = 53);
+//echo"$SplittedData"."<br />";
+$i--;
+}
+*/
 //11. Divide the string 1 by occurances of '.'. Combine the array in reverse word sequence
 
 //12. Remove the HTML characters from string.
@@ -66,8 +67,9 @@ echo strip_tags($text, '<br />');
 //14. Find the length of string 1 & 2
 stringLength($stringOne,$stringTwo);
 
+
 //15. Create file & write string 1 to that file using PHP functions.
-createWriteFile();
+fileWrite($stringOne);
 
 CompareDates();
 
@@ -84,10 +86,13 @@ echo "length of string 1 is $length1 and length of string 2 is $length2"."<br />
 
 //15. Create file & write string 1 to that file using PHP functions.
 
-function createWriteFile($stringOne) 
+function fileWrite($catch) 
 {
-	
-	}
+	$file=fopen("output.txt","w");
+	fwrite($file, $catch);
+	$file($file);
+	return;	
+}
 
 //16. Print all Global varibles provided by PHP
 
@@ -108,7 +113,8 @@ Usage
 
 
 //19. Compare two dates. (12-4-2010 & 12-5-2011). Calculate the days between these two dates. 
-function CompareDates() {
+function CompareDates() 
+{
 $date1 = new DateTime("2010-04-12");
 $date2 = new DateTime("2011-05-12");
 $interval = $date1->diff($date2);
