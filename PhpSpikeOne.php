@@ -13,14 +13,20 @@ $occ=substr_count($stringOne,"PHP");
 echo"$occ"."<br>";
 
 //2. Find the position where PHP occures in the string 1.
+echo"<br />";
+echo"2. Find the position where PHP occures in the string 1.";
+echo"<br />";
 
 
 //3. Create array of words in string 1 & print them using a recursive function.
+echo"<br />";
+echo "3. Create array of words in string 1 & print them using a recursive function.";
 $arr=explode(" ",$stringOne);
 print_r($arr);
+$result = array_reverse_recursive($arr);
 /*
 $arr =explode(" ",$stringOne))."<br />";
-$result = array_reverse_recursive($arr);
+$result = array_reverse_recursive($arr);*/
 print_r($result);
 
 function array_reverse_recursive($arr) 
@@ -30,7 +36,7 @@ function array_reverse_recursive($arr)
             $arr[$key] = array_reverse_recursive($val);
     }
     return array_reverse($arr);
-}*/
+}
 //4. Capitalise string 1
 echo "<br />";
 echo "4. Capitalise string 1"."<br>";
@@ -85,13 +91,11 @@ echo"<br />";
 echo"10. Cut the string 1 into 4 parts & print it.";
 
 cut($temp);
+ 
 
-function cut($temp)
+function cut($temp1)
 {
-$input_array = $temp;
-echo "split";
-print_r(array_chunk($input_array, 20));
-print_r(array_chunk($input_array, 20, true));
+	
 }
 
 echo"<br />";
