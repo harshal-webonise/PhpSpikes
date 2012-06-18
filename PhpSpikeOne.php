@@ -9,12 +9,15 @@ $temp=explode(".", $stringOne);
 
 //1. Find occurance of PHP from string 1.
 echo "1. Find occurance of PHP from string 1."."<br />";
-echo strpos($stringOne,"PHP")."<br />";
+$occ=substr_count($stringOne,"PHP");
+echo"$occ"."<br>";
 
 //2. Find the position where PHP occures in the string 1.
 
 
 //3. Create array of words in string 1 & print them using a recursive function.
+$arr=explode(" ",$stringOne);
+print_r($arr);
 /*
 $arr =explode(" ",$stringOne))."<br />";
 $result = array_reverse_recursive($arr);
@@ -29,6 +32,7 @@ function array_reverse_recursive($arr)
     return array_reverse($arr);
 }*/
 //4. Capitalise string 1
+echo "<br />";
 echo "4. Capitalise string 1"."<br>";
 $strUpper = strtoupper($stringOne);
 	echo "<br />"."$strUpper"."<br />"; 
@@ -112,6 +116,7 @@ echo"<br />";
 echo"12. Remove the HTML characters from string.";
 //echo"without html";
 echo strip_tags($StringOne, '<br />');
+print_r("$stringOne");
 
 echo"<br />";
 //13. Print the 'PHP' word from string 1 by traversing it using string functions
