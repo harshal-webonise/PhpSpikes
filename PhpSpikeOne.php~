@@ -61,12 +61,13 @@ echo '$stringOne'.'$stringTwo'."<br />";
 echo"<br />";
 echo "7. Print current date"."<br>";
 echo date("Y/m/d") . "<br />";
+echo "<br />";
 
 
 //8. print 12th Jan 2012
 echo"8. print 12th Jan 2012"."<br />";
 $afterSevenDays = mktime(0,0,0,date("m")-5,date("d")-6,date("Y"));
-echo "<br />"." january 12 ".date("Y/m/d", $afterSevenDays)."<br />";
+echo " january 12 ".date("Y/m/d", $afterSevenDays)."<br />";
 
 
 //9. add 7 days in current date
@@ -88,7 +89,10 @@ function cut($temp1)
 	$count = strlen($string_replace)/4;
 	$out = str_split($temp1,$count+3);
 	print_r($out);
-	}
+	echo "<br />";
+}
+
+
 function divideStringByDot($temp)
 {
 echo"<br />";
@@ -107,6 +111,7 @@ $reverse_temp2=array_reverse($temp2);
 echo"<br />";
 echo "reverse array print"."<br />";
 echo "$reverse_temp2"."$reverse_temp1"."<br />";
+echo "<br />";
 }
 
 
@@ -118,6 +123,7 @@ echo"12. Remove the HTML characters from string.";
 //echo"without html";
 echo strip_tags($StringOne, '<br />');
 print_r("$stringOne");
+echo "<br />";
 
 //13. Print the 'PHP' word from string 1 by traversing it using string functions
 echo"<br />";
@@ -133,6 +139,7 @@ stringLength($stringOne,$stringTwo);
 echo"<br />";
 echo"15. Create file & write string 1 to that file using PHP functions.";
 fileWrite($stringOne);
+echo "<br />";
 
 echo"<br />";
 echo"16. Print all Global varibles provided by PHP"."<br />";
@@ -191,10 +198,12 @@ header("Content-Disposition:attachment;filename='downloaded.jpg'");// The PDF so
 readfile("original.jpg");
 
 //18. Redirect page 1 to page 2.
+
 echo "<br />";
 echo "18. Redirect page 1 to page 2."."<br />"; 
 echo "header('Location: /info.php')";
-
+echo"To know how it works then load page sample.php which redirects to info.php";
+echo "<br />";
 CompareDates();
 
 //19. Compare two dates. (12-4-2010 & 12-5-2011). Calculate the days between these two dates. 
@@ -206,6 +215,7 @@ $date1 = new DateTime("2010-04-12");
 $date2 = new DateTime("2011-05-12");
 $interval = $date1->diff($date2);
 echo "difference " . $interval->y . " years, " . $interval->m." months, ".$interval->d." days "; 
+echo "<br />";
 }
 
 //20. Print date after 20 days from current date
@@ -213,11 +223,12 @@ echo"<br />";
 echo "20. Print date after 20 days from current date";
 $afterTwentyDays = mktime(0,0,0,date("m")+1,date("d")+8,date("Y"));
 echo "After 20  days date is  ".date("Y/m/d", $afterTwentyDays);
-
+echo "<br />";
 
 //21. Print date in array format.
 echo"<br />";
 echo "21. Print date in array format."."<br>";
 $today = getdate();
 print_r($today);
+echo "<br />";
 ?>
