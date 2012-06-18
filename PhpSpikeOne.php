@@ -7,14 +7,14 @@ $temp=explode(".", $stringOne);
 
 
 
-//1. Find occurance of PHP from string 1.
-occ($stringOne);
+	//1. Find occurance of PHP from string 1.
+	occ($stringOne);
 
 
-//2. Find the position where PHP occures in the string 1.
-findPhp($stringOne);
+	//2. Find the position where PHP occures in the string 1.
+	findPhp($stringOne);
 
-//3. Create array of words in string 1 & print them using a recursive function.
+	//3. Create array of words in string 1 & print them using a recursive function.
 	echo"<br />";
 	echo "3. Create array of words in string 1 & print them using a recursive function.";
 	$arr=explode(" ",$stringOne);
@@ -23,11 +23,11 @@ findPhp($stringOne);
 	print_r($result);
 	echo "<br />";
 
-//4. Capitalise string 1
-capital($stringOne);
+	//4. Capitalise string 1
+	capital($stringOne);
 
-
-combineOneAndTwo($stringOne);
+	//combine first and second string
+	combineOneAndTwo($stringOne);
 
 
 
@@ -72,6 +72,20 @@ combineOneAndTwo($stringOne);
 	//16. Print all Global varibles provided by PHP"
 	printGlobal();
 
+	//"17. Usage and examples of Header (PHP)";
+	headerInfo();
+
+	//18. Redirect page 1 to page 2.
+	redirection();
+
+	//19. Compare two dates. (12-4-2010 & 12-5-2011). Calculate the days between these two dates. 
+	CompareDates();
+
+	//20. Print date after 20 days from current dateafterTwenty();
+	afterTwenty();
+	
+	//21. Print date in array format.	
+	dateInArray();
 
 function CurrentPlusSevenDays()
 	 {
@@ -135,8 +149,8 @@ function printPhp()
 	echo substr($stringOne, 0,3);
 	echo"<br />";
 	}
-//10. Cut the string 1 into 4 parts & print it."	
-function cut($temp1)
+	//10. Cut the string 1 into 4 parts & print it."	
+	function cut($temp1)
 	{
 	echo"<br />";
 	echo"10. Cut the string 1 into 4 parts & print it."."<br />";
@@ -212,52 +226,45 @@ function fileWrite($catch)
 }
 
 
+	
+function headerInfo() {
+	echo"<br />";
+	echo "17. Usage and examples of Header (PHP)"."<br />"; 
+	echo"Usage"."<br />"; 
+	echo"1)PHP is not limited to outputting html. PHP can output images, pdf, javascript files, etc."."<br />"; 
+	echo "2)Browsers determine what type of content is by analyzing the headers sent"."<br />";
 
 
+	// Date in the past
+	header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+	header("Cache-Control: no-cache");
+	header("Pragma: no-cache");
+
+	//to download pdf
+	header("Content-type:application/pdf");
+	// It will be called downloaded.pdf
+	header("Content-Disposition:attachment;filename='downloaded.pdf'");// The PDF source is in original.pdf
+	readfile("original.pdf");
+
+	//to download jpg
+	header("Content-type:image/jpg");
+	header("Content-Disposition:attachment;filename='downloaded.jpg'");// The PDF source is in original.jpg
+	readfile("original.jpg");
+}
 
 
-echo"<br />";
-echo "17. Usage and examples of Header (PHP)"."<br />"; 
-echo"Usage"."<br />"; 
-echo"1)PHP is not limited to outputting html. PHP can output images, pdf, javascript files, etc."."<br />"; 
-echo "2)Browsers determine what type of content is by analyzing the headers sent"."<br />";
-/*
-
-// Date in the past
-header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
-header("Cache-Control: no-cache");
-header("Pragma: no-cache");
-
-//to download pdf
-header("Content-type:application/pdf");
-// It will be called downloaded.pdf
-header("Content-Disposition:attachment;filename='downloaded.pdf'");// The PDF source is in original.pdf
-readfile("original.pdf");
-//to download jpg
-header("Content-type:image/jpg");
-header("Content-Disposition:attachment;filename='downloaded.jpg'");// The PDF source is in original.jpg
-readfile("original.jpg");
-*/
 //18. Redirect page 1 to page 2.
 
-echo "<br />";
-echo "18. Redirect page 1 to page 2."."<br />"; 
-echo "header('Location: /info.php')";
-echo"To know how it works then load page sample.php which redirects to info.php";
-echo "<br />";
-CompareDates();
-dateInArray();
+function redirection() {
+	echo "<br />";
+	echo "18. Redirect page 1 to page 2."."<br />"; 
+	echo "header('Location: /info.php')";
+	echo"To know how it works then load page sample.php which redirects to info.php";
+	echo "<br />";
+}
+	
 
-//20. Print date after 20 days from current date
-echo"<br />";
-echo "20. Print date after 20 days from current date";
-$afterTwentyDays = mktime(0,0,0,date("m")+1,date("d")+8,date("Y"));
-echo "After 20  days date is  ".date("Y/m/d", $afterTwentyDays);
-echo "<br />";
-
-
-
-
+	
 //19. Compare two dates. (12-4-2010 & 12-5-2011). Calculate the days between these two dates. 
 function CompareDates() 
 {
@@ -270,25 +277,37 @@ echo "difference " . $interval->y . " years, " . $interval->m." months, ".$inter
 echo "<br />";
 }
 
+//20. Print date after 20 days from current date
+function afterTwenty() 
+{
+echo"<br />";
+echo "20. Print date after 20 days from current date";
+$afterTwentyDays = mktime(0,0,0,date("m")+1,date("d")+8,date("Y"));
+echo "After 20  days date is  ".date("Y/m/d", $afterTwentyDays);
+echo "<br />";
+}
+
 
 
 //21. Print date in array format.
-function dateInArray() {	
+function dateInArray()
+	 {	
 	echo"<br />";
 	echo "21. Print date in array format."."<br>";
 	$today = getdate();
 	print_r($today);
 	echo "<br />";
-}
+	}
+
 function occ ($stringOne) 
-{
+	{
 	echo "1. Find occurance of PHP from string 1."."<br />";
 	$occ=substr_count($stringOne,"PHP");
 	echo"$occ"."<br>";
-}
+	}
 
  function findPhp($string)
-{
+	{
 		echo"<br />";
 		echo"2. Find the position where PHP occures in the string 1.";
 		echo"<br />";
