@@ -134,6 +134,9 @@ echo"15. Create file & write string 1 to that file using PHP functions.";
 //fileWrite($stringOne);
 echo"<br />";
 
+echo"16. Print all Global varibles provided by PHP"."<br />";
+echo phpinfo(INFO_VARIABLES);
+
 echo"<br />";
 echo"19. Compare two dates. (12-4-2010 & 12-5-2011). Calculate the days between these two dates."."<br />";
 CompareDates();
