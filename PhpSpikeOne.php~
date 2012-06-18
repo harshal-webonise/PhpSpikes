@@ -88,29 +88,35 @@ $afterSevenDays = mktime(0,0,0,date("m"),date("d")+7,date("Y"));
 echo "After 7 days date is  ".date("Y/m/d", $afterSevenDays)."<br />";
 echo"<br />";
 
-echo"10. Cut the string 1 into 4 parts & print it.";
+
 
 cut($temp);
- 
+divideStringByDot($temp); 
 
 function cut($temp1)
 {
+	echo"10. Cut the string 1 into 4 parts & print it.";
 	
-}
-
+	}
+function divideStringByDot($temp)
+{
 echo"<br />";
 echo "11. Divide the string 1 by occurances of '.'. Combine the array in reverse word sequence"."<br />";
 echo "****";
 print_r($temp);
 $temp1=explode(" ", $temp[0]);
-//print_r($temp1[0]);
+echo"temp 0"."<br />";
+print_r($temp1);
 $temp2=explode(" ", $temp[1]);
-//print_r($temp1[1]);
+echo"<br />";
+echo"temp 1"."<br />";
+print_r($temp1);
 $reverse_temp1=array_reverse($temp1);
 $reverse_temp2=array_reverse($temp2);
+echo"<br />";
 echo "reverse array print"."<br />";
 echo "$reverse_temp2"."$reverse_temp1"."<br />";
-
+}
 
 
 //12. Remove the HTML characters from string.
@@ -122,8 +128,8 @@ echo"12. Remove the HTML characters from string.";
 echo strip_tags($StringOne, '<br />');
 print_r("$stringOne");
 
-echo"<br />";
 //13. Print the 'PHP' word from string 1 by traversing it using string functions
+echo"<br />";
 echo"13. Print the 'PHP' word from string 1 by traversing it using string functions";
 
 echo"<br />";
@@ -135,14 +141,13 @@ stringLength($stringOne,$stringTwo);
 
 echo"<br />";
 echo"15. Create file & write string 1 to that file using PHP functions.";
-//fileWrite($stringOne);
-echo"<br />";
+fileWrite($stringOne);
 
+echo"<br />";
 echo"16. Print all Global varibles provided by PHP"."<br />";
 echo phpinfo(INFO_VARIABLES);
 
-echo"<br />";
-echo"19. Compare two dates. (12-4-2010 & 12-5-2011). Calculate the days between these two dates."."<br />";
+
 CompareDates();
 
 
@@ -157,15 +162,15 @@ echo "length of string 1 is $length1 and length of string 2 is $length2"."<br />
 
 
 //15. Create file & write string 1 to that file using PHP functions.
-echo"<br />";
-echo"15. Create file & write string 1 to that file using PHP functions.";
-//function fileWrite($catch) 
-
-	$file=fopen("output.txt","w");
+function fileWrite($catch) 
+{
+	echo"<br />";
+echo"redirect to output.txt"."<br />";
+$file=fopen("output.txt","w");
 	fwrite($file, $catch);
 	$fclose($file);
 	//return;	
-
+}
 
 
 
@@ -200,6 +205,8 @@ readfile("original.jpg");
 //19. Compare two dates. (12-4-2010 & 12-5-2011). Calculate the days between these two dates. 
 function CompareDates() 
 {
+echo"<br />";
+echo"19. Compare two dates. (12-4-2010 & 12-5-2011). Calculate the days between these two dates."."<br />";
 $date1 = new DateTime("2010-04-12");
 $date2 = new DateTime("2011-05-12");
 $interval = $date1->diff($date2);
