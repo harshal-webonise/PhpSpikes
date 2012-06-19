@@ -27,7 +27,7 @@ $temp=explode(".", $stringOne);
 	capital($stringOne);
 
 	//combine first and second string
-	combineOneAndTwo($stringOne);
+	combineOneAndTwo($stringOne,$stringTwo);
 
 
 
@@ -50,7 +50,7 @@ $temp=explode(".", $stringOne);
 	cut($stringOne);
 
 	//"11. Divide the string 1 by occurances of '.'. Combine the array in reverse word sequence".
-	divideStringByDot($temp); 
+	divideStringByDot($stringOne); 
 
 	
 
@@ -95,7 +95,7 @@ function CurrentPlusSevenDays()
 		echo"<br />";
 	}
 
-function combineOneAndTwo($stringOne)
+function combineOneAndTwo($stringOne,$stringTwo)
 {
 	echo "5. Combine string 1 & 2."."<br />" ;
 	echo "$stringOne"."$stringTwo"."<br />";
@@ -142,11 +142,13 @@ function currentDate() {
 		echo "<br />";
 	}
 	
-function printPhp() 
+function printPhp($stringOne) 
 	{
 	echo"<br />";
 	echo"13. Print the 'PHP' word from string 1 by traversing it using string functions";
-	echo substr($stringOne, 0,3);
+	$sub=substr($stringOne, 0,3);
+	echo"<br />";	
+	echo"$sub";
 	echo"<br />";
 	}
 	//10. Cut the string 1 into 4 parts & print it."	
@@ -172,20 +174,29 @@ function divideStringByDot($temp)
 {
 	echo"<br />";
 	echo "11. Divide the string 1 by occurances of '.'. Combine the array in reverse word sequence"."<br />";
-	echo "****";
-	print_r($temp);
-	$temp1=explode(" ", $temp[0]);
-	echo"temp 0"."<br />";
+	//echo "****";
+	//print_r($temp);
+	$temp1=explode(".", $temp);
+	//echo"temp 0"."<br />";
 	print_r($temp1);
-	$temp2=explode(" ", $temp[1]);
+	$tempFirst=explode(" ", $temp1[0]);
+	$tempSecond=explode(" ", $temp1[1]);	
 	echo"<br />";
-	echo"temp 1"."<br />";
-	print_r($temp1);
-	$reverse_temp1=array_reverse($temp1);
-	$reverse_temp2=array_reverse($temp2);
+	//echo"temp 1"."<br />";
+	echo("$tempFirst");
+	echo("$tempSecond");
+	$reverse_temp1=array_reverse($tempFirst);
+	$reverse_temp2=array_reverse($tempSecond);
 	echo"<br />";
-	echo "reverse array print"."<br />";
-	echo "$reverse_temp2"."$reverse_temp1"."<br />";
+	//echo "reverse array print"."<br />";
+	//echo "$reverse_temp2"."$reverse_temp1"."<br />";
+
+	print_r($reverse_temp2);
+	implode(" ", $reverse_temp2);
+	echo"$reverse_temp2";
+	echo"<br />"."<br />";
+	print_r($reverse_temp1);	
+
 	echo "<br />";
 }
 
@@ -306,27 +317,17 @@ function occ ($stringOne)
 	echo"$occ"."<br>";
 	}
 
- function findPhp($string)
+ function findPhp($string1)
 	{
+		$temp=explode(" ", $string1);
 		echo"<br />";
 		echo"2. Find the position where PHP occures in the string 1.";
 		echo"<br />";
-
-    	$array = array();
-    	$i=0;
-    	$sum =0 ;
-    	$arr = explode("PHP",$string);
-    	foreach($arr as $item)
-    	{
-         $pos = strlen($item);
-         $array[$i] = ($pos);
-         $i = $i+1;
-         $sum = $sum + $pos;
-    	}
-    foreach($array as $item)
-    {
-      echo $item."  ";
-    }
-    
+		for($i=0;$i<count($temp);$i++) 
+{
+        if($temp[$i]=="PHP")
+        echo $i."<br/>";
+}
+    	
 }
 ?>
